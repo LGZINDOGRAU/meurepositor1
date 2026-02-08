@@ -1,74 +1,107 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo do site */
 body {
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background: #0f0f0f;
     color: white;
     font-family: 'Edu NSW ACT Hand Pre', cursive;
 }
 
-/* Header */
-.topo {
-    background: #000;
-    padding: 20px;
-    text-align: center;
+/* MENU */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: black;
     border-bottom: 3px solid red;
 }
 
-.topo h1 {
+.menu h1 {
     color: red;
-    font-size: 3rem;
-    letter-spacing: 3px;
 }
 
-.topo span {
-    font-size: 1rem;
-    color: #ccc;
+.menu ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
 }
 
-/* Seção principal */
-.chamada {
-    padding: 40px;
+.menu li {
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* Texto */
-.chamada-texto h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+.menu li:hover {
+    color: red;
 }
 
-.chamada-texto p {
-    font-size: 1.2rem;
-    color: #ddd;
+/* CONTEÚDO */
+.container {
+    padding: 30px;
+}
+
+.chamada-texto {
+    text-align: center;
     margin-bottom: 30px;
 }
 
-/* Vídeos */
-.videos {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
 }
 
-/* Iframes */
-iframe {
-    width: 320px;
-    height: 180px;
+.card {
+    background: #1c1c1c;
+    padding: 15px;
     border-radius: 15px;
-    border: 3px solid transparent;
-    transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Efeito hover (chamativo 🔥) */
-iframe:hover {
-    transform: scale(1.1);
-    border: 3px solid red;
+.card iframe {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: scale(1.08);
     box-shadow: 0 0 25px red;
 }
 
+/* ANIMAÇÃO */
+.animar {
+    animation: surgir 1s ease forwards;
+}
+
+@keyframes surgir {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+    .menu ul {
+        display: none;
+    }
+
+    .menu {
+        justify-content: center;
+    }
+}
