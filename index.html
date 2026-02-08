@@ -5,51 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUIS-FLIX</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts -->
+    <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
-        <header class="topo">
+<!-- MENU STREAMING -->
+<nav class="menu">
     <h1>🎬 LUIS-FLIX</h1>
-    <span>9° Ano B </span>
-</header>
+    <ul>
+        <li>Início</li>
+        <li>Filmes</li>
+        <li>Séries</li>
+        <li>Favoritos</li>
+    </ul>
+</nav>
 
-    </header>
+<!-- CONTEÚDO -->
+<section class="container">
 
-    <section class="chamada">
-        <div class="chamada-texto">
-            <h2>Indicação de filmes para a Emanuely, minha amiga</h2>
-            <p>Assista às recomendações da semana</p>
+    <div class="chamada-texto animar">
+        <h2>Indicações para a Emanuely 💖</h2>
+        <p>As melhores recomendações da semana</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card animar" data-sound>
+            <iframe src="https://www.youtube.com/embed/zOrTh2aLwrI" allowfullscreen></iframe>
+            <h3>Filme 1</h3>
         </div>
 
-        <div class="videos">
-            <iframe 
-                src="https://www.youtube.com/embed/zOrTh2aLwrI"
-                title="Vídeo 1"
-                allowfullscreen>
-            </iframe>
-
-            <iframe 
-                src="https://www.youtube.com/embed/CWTy1ukPoYY"
-                title="Vídeo 2"
-                allowfullscreen>
-            </iframe>
-
-            <iframe 
-                src="https://www.youtube.com/embed/QczGoCmX-pI"
-                title="Vídeo 3"
-                allowfullscreen>
-            </iframe>
+        <div class="card animar" data-sound>
+            <iframe src="https://www.youtube.com/embed/CWTy1ukPoYY" allowfullscreen></iframe>
+            <h3>Filme 2</h3>
         </div>
-    </section>
 
+        <div class="card animar" data-sound>
+            <iframe src="https://www.youtube.com/embed/QczGoCmX-pI" allowfullscreen></iframe>
+            <h3>Filme 3</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- SOM -->
+<audio id="hoverSound" src="hover.mp3"></audio>
+
+<script src="script.js"></script>
 </body>
 </html>
