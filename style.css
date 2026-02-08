@@ -1,40 +1,106 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite; /* Fundo animado que muda de cor */
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
+    padding: 50px;
     text-align: center;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    backdrop-filter: blur(5px);
-}
-
-.coracao { font-size: 50px; margin: 20px 0; }
-
-button {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px;
-    background: #e73c7e;
     color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    z-index: 1;
 }
 
-button:hover { transform: scale(1.1); }
+.perfil-circulo {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+}
+
+.titulo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #fff, #ff99cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.divider {
+    height: 2px;
+    width: 50px;
+    background: #ff99cc;
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+/* Efeito de brilho no botão */
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px; left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active:after { background: transparent; }
+.glow-on-hover:hover:before { opacity: 1; }
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%; height: 100%;
+    background: #222;
+    left: 0; top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
