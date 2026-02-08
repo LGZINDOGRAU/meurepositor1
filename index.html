@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para minha melhor amiga</title>
+    <title>Para Alguém Especial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="particles-js"></div>
 
-    <div class="container animate__animated animate__fadeInDown">
-        <h1 class="animate__animated animate__pulse animate__infinite">Para Emanuely ✨</h1>
+    <div class="glass-card animate__animated animate__zoomIn">
+        <div class="perfil-circulo">
+            <span>✨</span> </div>
         
-        <div class="coracao animate__animated animate__heartBeat animate__infinite">❤️</div>
-
-        <p class="fade-in-text">Você é a melhor amiga que alguém poderia ter.</p>
+        <h1 class="titulo">Para minha melhor amiga</h1>
         
-        <div class="mensagem">
-            <p>"Nossa amizade é como um código sem bugs: perfeita!"</p>
+        <div class="divider"></div>
+        
+        <p class="texto-digitando" id="mensagem-subtitulo"></p>
+        
+        <div class="conteudo-extra">
+            <p>Ter sua amizade é como ter um porto seguro. Obrigado por cada risada e por cada momento!</p>
         </div>
 
-        <button id="botaoSurpresa">Clica aqui!</button>
-        
-        <div id="confetes"></div>
+        <button id="btnMagico" class="glow-on-hover">Clique para brilhar</button>
     </div>
 
     <script src="script.js"></script>
