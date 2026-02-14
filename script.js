@@ -1,38 +1,20 @@
-const texto = "Você é a luz dos meus dias!";
-let index = 0;
+// Efeito de seguir o mouse para a luz de fundo
+const glow = document.querySelector('.cursor-glow');
 
-function escreverTexto() {
-    if (index < texto.length) {
-        document.getElementById("mensagem-subtitulo").innerHTML += texto.charAt(index);
-        index++;
-        setTimeout(escreverTexto, 100);
-    }
-}
+document.addEventListener('mousemove', (e) => {
+    glow.style.setProperty('--x', e.clientX + 'px');
+    glow.style.setProperty('--y', e.clientY + 'px');
+});
 
-// Inicia a digitação ao carregar
-window.onload = escreverTexto;
-
-// Efeito de partículas/flores ao clicar
-document.getElementById('btnMagico').addEventListener('click', function() {
-    for (let i = 0; i < 50; i++) {
-        const p = document.createElement('div');
-        p.innerHTML = '🌸';
-        p.className = 'particula';
-        p.style.position = 'fixed';
-        p.style.left = Math.random() * 100 + 'vw';
-        p.style.top = '100vh';
-        p.style.fontSize = (Math.random() * 20 + 10) + 'px';
-        p.style.zIndex = '1000';
-        p.style.transition = 'all 3s ease-out';
-        
-        document.body.appendChild(p);
-
-        setTimeout(() => {
-            p.style.transform = `translateY(-110vh) translateX(${Math.random() * 200 - 100}px) rotate(720deg)`;
-            p.style.opacity = '0';
-        }, 50);
-
-        setTimeout(() => p.remove(), 3000);
-    }
-    alert("Você acaba de ganhar uma chuva de carinho! 💖");
+// Animação de entrada escalonada para os cards
+const cards = document.querySelectorAll('.link-card');
+cards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        card.style.transition = 'all 0.6s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    }, 200 * index);
 });
