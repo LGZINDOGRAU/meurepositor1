@@ -1,106 +1,105 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg-color: #050505;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --accent-color: #00d2ff;
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main), system-ui;
+}
 
 body {
-    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
-    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Efeito de Iluminação de Fundo */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(600px circle at var(--x) var(--y), rgba(0, 210, 255, 0.15), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+.subtitle { color: #888; font-size: 0.9rem; margin-bottom: 2.5rem; }
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.link-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    padding: 1.2rem;
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
     overflow: hidden;
 }
 
-.glass-card {
+.link-card:hover {
+    transform: scale(1.05);
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    padding: 50px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 25px 45px rgba(0,0,0,0.5);
-    max-width: 450px;
-    width: 90%;
-    position: relative;
-    z-index: 1;
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.perfil-circulo {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(45deg, #ff00cc, #3333ff);
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    box-shadow: 0 0 20px rgba(255, 0, 204, 0.5);
+.link-card i { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--accent-color); }
+.link-card span { font-weight: 600; font-size: 1.1rem; }
+.link-card small { font-size: 0.75rem; color: #888; margin-top: 4px; }
+
+/* Botão com brilho extra */
+.highlight {
+    background: linear-gradient(45deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
+    border: 1px solid rgba(0, 210, 255, 0.4);
 }
 
-.titulo {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    background: linear-gradient(to right, #fff, #ff99cc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.divider {
-    height: 2px;
-    width: 50px;
-    background: #ff99cc;
-    margin: 20px auto;
-    border-radius: 2px;
-}
-
-.glow-on-hover {
-    width: 220px;
-    height: 50px;
-    border: none;
-    outline: none;
-    color: #fff;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 10px;
-    margin-top: 30px;
-    font-weight: 600;
-}
-
-/* Efeito de brilho no botão */
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
-    position: absolute;
-    top: -2px; left:-2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-.glow-on-hover:active:after { background: transparent; }
-.glow-on-hover:hover:before { opacity: 1; }
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    width: 100%; height: 100%;
-    background: #222;
-    left: 0; top: 0;
-    border-radius: 10px;
-}
-
-@keyframes glowing {
-    0% { background-position: 0 0; }
-    50% { background-position: 400% 0; }
-    100% { background-position: 0 0; }
-}
+footer { margin-top: 3rem; font-size: 0.8rem; color: #555; }
